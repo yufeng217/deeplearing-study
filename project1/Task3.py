@@ -77,7 +77,7 @@ def bangalore_codes():
     
     for item in calls:
         bangalore_fixed_telephone = is_bangalore_fixed_telephone(item[0])
-        if bangalore_fixed_telephone:
+        if bangalore_fixed_telephone[0]:
             
             fixed_telephone = is_fixed_telephone(item[1])
             if fixed_telephone[0] and fixed_telephone[1] not in codes:

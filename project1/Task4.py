@@ -26,38 +26,32 @@ with open('calls.csv', 'r') as f:
 电话号码不能重复，每行打印一条，按字典顺序排序后输出。
 """
 
-""" 判断推销号码函数 """
-def is_sell_phone(phone):
-    """
-        如果是推销，返回 [True, 电话]
-        如果不是固话，返回 [False]
-    """
-    if phone[0:3] == "140":
-        return [True, phone]
-    else:
-        return [False]
-def sell_list():
-    sell_list = []
-    sell_called_list = []
+def remove_duplicate(list):
+    ret_list = []
+    for element in list:
+        if element not in ret_list:
+            ret_list.append(element)
+    return ret_list
+
+def sell_list(call_phone_list):
+
+    """ 被叫号码如果在主叫号 list 中，证明该号不是推销号，从主叫号 list 中删除 """
     for phone in calls:
-        sell_phone = is_sell_phone(phone[0])
-        """ 是推销号码，且不再 list 中，则添加到推销号 list 中"""
-        if sell_phone[0] and sell_phone[1] not in sell_list:
-            sell_list.append(sell_phone[1])
-        elif phone[1] in sell_list and phone[1] not in sell_called_list:
-            """ 找出接收来电的推销号，添加到被叫 list 中"""
-            sell_called_list.append(phone[1])
-    """ 找出发送或接收短信的推销号，添加到被叫 list 中 """
+        if phone[1] in call_phone_list:
+            call_phone_list.remove(phone[1])
+        
+    """ 发送短信号或接收短信号如果在主叫号 list 中，证明该号不是推销号，从主叫号 list 中删除 """
     for phone in texts:
-        if phone[0] in sell_list and phone[0] not in sell_called_list:
-            sell_called_list.append(phone[0])
-        if phone[1] in sell_list and phone[1] not in sell_called_list:
-            sell_called_list.append(phone[1])
-    """ 将被叫号 list 中的号在推销号 list 中删除 """
-    return list(set(sell_list).difference(set(sell_called_list)))
+        if phone[0] in call_phone_list:
+            call_phone_list.remove(phone[0])
+        if phone[1] in call_phone_list:
+            call_phone_list.remove(phone[1])
     
+    return call_phone_list
     
-_sell_list = sell_list()
+_call_phone_list = remove_duplicate([call[0] for call in calls])
+
+_sell_list = sell_list(_call_phone_list)
 _sell_list.sort()
 _sell_list = "\n".join(_sell_list)
 print("These numbers could be telemarketers:")
