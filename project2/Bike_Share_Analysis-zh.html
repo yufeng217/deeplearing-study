@@ -11800,8 +11800,8 @@ div#notebook {
 <p><strong>问题 1</strong>: 写出至少两个你觉得能用数据解决的共享单车相关问题。</p>
 <p><strong>答案</strong>：</p>
 <ul>
-<li>每个城市使用人数最多的时间段位于什么位置？</li>
-<li>哪些停放点的车流动性最强？</li>
+<li>一天内的哪个时候系统使用最频繁？</li>
+<li>会员和散客的使用模式有区别吗？</li>
 </ul>
 <blockquote><p><strong>小贴士</strong>: 双击上框，文本就会发生变化，所有格式都会被清除，以便你编辑该文本块。该文本块是用 <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a>编写的，该语言使用纯文本语法，能用页眉、链接、斜体等来规范文本格式。在纳米学位课程中，你也会用到 Markdown。编辑后，可使用 <strong>Shift</strong> + <strong>Enter</strong> 或 <strong>Shift</strong> + <strong>Return</strong> 运行上该框，使其呈现出编辑好的文本格式。</p>
 </blockquote>
@@ -11822,7 +11822,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## 导入所有必要的包和函数。</span>
@@ -11858,7 +11858,7 @@ div#notebook {
         <span class="c1">## 待办：对 DictReader 对象使用函数     ##</span>
         <span class="c1">## 从而读取数据文件的第一条骑行记录并将其存储为一个变量     ##</span>
         <span class="c1">## 见 https://docs.python.org/3/library/csv.html#reader-objects ##</span>
-        <span class="n">first_trip</span> <span class="o">=</span> <span class="n">trip_reader</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+        <span class="n">first_trip</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">trip_reader</span><span class="p">)</span>
         
         <span class="c1">## 待办：用 pprint 库来输出第一条骑行记录。 ##</span>
         <span class="c1">## 见 https://docs.python.org/3/library/pprint.html     ##</span>
@@ -11963,7 +11963,7 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">duration_in_mins</span><span class="p">(</span><span class="n">datum</span><span class="p">,</span> <span class="n">city</span><span class="p">):</span>
@@ -11980,15 +11980,12 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="c1"># 请在此处写出代码</span>
-    <span class="k">if</span> <span class="n">city</span> <span class="o">==</span> <span class="s1">&#39;NYC&#39;</span> <span class="ow">or</span> <span class="n">city</span> <span class="o">==</span> <span class="s1">&#39;Chicago&#39;</span><span class="p">:</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">datum</span><span class="p">[</span><span class="s1">&#39;tripduration&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">60</span>
-        <span class="c1">#print(d)</span>
-        <span class="k">return</span> <span class="n">d</span>
-    <span class="k">elif</span> <span class="n">city</span> <span class="o">==</span> <span class="s1">&#39;Washington&#39;</span><span class="p">:</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">datum</span><span class="p">[</span><span class="s1">&#39;Duration (ms)&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">1000</span> <span class="o">/</span> <span class="mi">60</span>
-        <span class="c1">#print(d)</span>
-        <span class="k">return</span> <span class="n">d</span>
-    <span class="k">return</span> <span class="n">duration</span>
+    <span class="c1"># 使用字典来转换对应的键和值。在分支很少的情况下，用 if-else 是可行的，</span>
+    <span class="c1"># 但是在分支很多的情况下，用如下的方法能大大简化你的代码。</span>
+    <span class="c1"># 感谢审阅老师的教授</span>
+    <span class="n">name_convertion</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NYC&#39;</span><span class="p">:</span><span class="s1">&#39;tripduration&#39;</span><span class="p">,</span> <span class="s1">&#39;Chicago&#39;</span><span class="p">:</span><span class="s1">&#39;tripduration&#39;</span><span class="p">,</span> <span class="s1">&#39;Washington&#39;</span><span class="p">:</span><span class="s1">&#39;Duration (ms)&#39;</span><span class="p">}</span>
+    <span class="n">time_convertion</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NYC&#39;</span><span class="p">:</span><span class="mi">60</span><span class="p">,</span> <span class="s1">&#39;Chicago&#39;</span><span class="p">:</span><span class="mi">60</span><span class="p">,</span> <span class="s1">&#39;Washington&#39;</span><span class="p">:</span><span class="mi">60000</span><span class="p">}</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">datum</span><span class="p">[</span><span class="n">name_convertion</span><span class="p">[</span><span class="n">city</span><span class="p">]])</span> <span class="o">/</span> <span class="n">time_convertion</span><span class="p">[</span><span class="n">city</span><span class="p">]</span>
 
 
 <span class="c1"># 测试代码是否奏效，若所有断言都没问题，则不应有输出出现。</span>
@@ -12009,7 +12006,7 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">time_of_trip</span><span class="p">(</span><span class="n">datum</span><span class="p">,</span> <span class="n">city</span><span class="p">):</span>
@@ -12761,8 +12758,8 @@ NYC 平均骑行时长 14.038656929671422, 骑行时长超过 30 分钟的比例
 <p><strong>问题 5</strong>：用 <code>.hist()</code> 函数的参数来为所选城市的会员骑行时长绘制分布图，并单独为散客做同样的操作。限制统计图的范围，仅绘制骑行时长小于 75 分钟的数据。另外，你可以设置每条柱形之间有五分钟的间隔。在每组数据中，各分布图的峰值分别在哪？你会如何描述每个分布图的形状？</p>
 <p><strong>答案</strong>：</p>
 <ul>
-<li>散客骑行时长在 10 - 30 分钟</li>
-<li>会员骑行时长在 0 - 20 分钟</li>
+<li>散客骑行时长在 10 - 30 分钟，会员骑行时长在 0 - 20 分钟</li>
+<li>散客和会员的骑行分布图都呈左偏态分布（负偏态分布）</li>
 </ul>
 
 </div>
