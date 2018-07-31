@@ -14,7 +14,7 @@
 # [2 Gaussian Jordan 消元法](#2-Gaussian-Jordan-消元法)  
 # [3  线性回归](#3-线性回归)  
 
-# In[40]:
+# In[2]:
 
 
 # 任意选一个你喜欢的整数，这能帮你得到稳定的结果
@@ -54,9 +54,9 @@ def get_matrix(num=4):
         row = []
         for j in range(num):
             if j == i:
-                row.append(2)
+                row.append(1)
             else:
-                row.append(7)
+                row.append(0)
         result.append(row)
     return result
 
@@ -103,15 +103,21 @@ get_ipython().run_line_magic('run', '-i -e test.py LinearRegressionTestCase.test
 
 # ## 1.4 计算矩阵的转置
 
-# In[8]:
+# In[16]:
 
 
 # TODO 计算矩阵的转置
 def transpose(M):
     return [list(col) for col in zip(*M)]
+# zip函数的功能是什么？
+#     将可迭代参数中的元素打包成一个个的元组，以列表形式返回
+# 实际参数中的*的作用是什么？
+#     行列转换
+# col的数据类型是什么？
+#     int
 
 
-# In[9]:
+# In[15]:
 
 
 # 运行以下代码测试你的 transpose 函数
@@ -178,7 +184,7 @@ get_ipython().run_line_magic('run', '-i -e test.py LinearRegressionTestCase.test
 #     ...    & ... & ... & ...& ...\\
 #     a_{n1}    & a_{n2} & ... & a_{nn} & b_{n} \end{bmatrix}$
 
-# In[17]:
+# In[18]:
 
 
 # TODO 构造增广矩阵，假设A，b行数相同
@@ -186,7 +192,7 @@ def augmentMatrix(A, b):
     return [ra + rb for ra, rb in zip(A, b)]
 
 
-# In[18]:
+# In[19]:
 
 
 # 运行以下代码测试你的 augmentMatrix 函数
@@ -332,7 +338,7 @@ get_ipython().run_line_magic('run', '-i -e test.py LinearRegressionTestCase.test
 
 # #### 以下开始你的尝试吧!
 
-# In[ ]:
+# In[20]:
 
 
 # 不要修改这里！
@@ -364,7 +370,7 @@ printInMatrixFormat(Ab,padding=3,truncating=0)
 #     
 # $...$
 
-# In[ ]:
+# In[21]:
 
 
 # 不要修改这里！
