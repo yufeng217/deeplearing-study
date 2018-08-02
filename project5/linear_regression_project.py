@@ -110,11 +110,12 @@ get_ipython().run_line_magic('run', '-i -e test.py LinearRegressionTestCase.test
 def transpose(M):
     return [list(col) for col in zip(*M)]
 # zip函数的功能是什么？
-#     将可迭代参数中的元素打包成一个个的元组，以列表形式返回
+#    —— 参考 https://www.cnblogs.com/yemeng/p/4063769.html
+#    将可迭代的对象作为参数，将参数中的元素打包成一个个的元组，最终以对象返回。可以用 list(object) 强转成列表。
 # 实际参数中的*的作用是什么？
-#     行列转换
+#    还请老师详解，拜托~
 # col的数据类型是什么？
-#     int
+#    又分析了一下，我猜是 object。还请老师详解，拜托~
 
 
 # In[15]:
