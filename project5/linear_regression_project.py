@@ -409,32 +409,30 @@ printInMatrixFormat(Ab,padding=3,truncating=0)
 #     0 & \frac{10}{3} & \frac{8}{9} & \frac{11}{9} \end{bmatrix}$
 # 
 # $ --> \begin{bmatrix}
-#     1 & -\frac{1}{3} & \frac{4}{9} & \frac{1}{9} \\
+#     1 & 0 & \frac{135}{117} & \frac{9}{3159} \\
 #    0 & 1 & \frac{83}{39} & -\frac{4}{39} \\
-#     0 & 0 & -\frac{242}{39} & \frac{61}{39} \end{bmatrix}$
+#     0 & \frac{10}{3} & \frac{8}{9} & \frac{11}{9} \end{bmatrix}$
 # 
 # $ --> \begin{bmatrix}
-#     1 & -\frac{1}{3} & \frac{4}{9} & \frac{1}{9} \\
+#     1 & 0 & \frac{135}{117} & \frac{9}{3159} \\
 #    0 & 1 & \frac{83}{39} & -\frac{4}{39} \\
-#     0 & 0 & 1 & -\frac{61}{242} \end{bmatrix}$
+#     0 & 0 & -\frac{726}{117} & \frac{222}{117} \end{bmatrix}$
 # 
 # $ --> \begin{bmatrix}
-#     1 & -\frac{1}{3} & \frac{4}{9} & \frac{1}{9} \\
-#    0 & 1 & 0 & \frac{105}{242} \\
-#     0 & 0 & 1 & -\frac{61}{242} \end{bmatrix}$
+#     1 & 0 & \frac{135}{117} & \frac{9}{3159} \\
+#    0 & 1 & \frac{83}{39} & -\frac{4}{39} \\
+#     0 & 0 & 0 & -\frac{222}{726} \end{bmatrix}$
 # 
 # $ --> \begin{bmatrix}
-#     1 & -\frac{1}{3} & 0 & \frac{27}{121} \\
-#    0 & 1 & 0 & \frac{105}{242} \\
-#     0 & 0 & 1 & -\frac{61}{242} \end{bmatrix}$
+#     1 & 0 & \frac{135}{117} & \frac{9}{3159} \\
+#    0 & 1 & 0 & \frac{15522}{28314} \\
+#     0 & 0 & 1 & -\frac{222}{726} \end{bmatrix}$
 # 
 # $ --> \begin{bmatrix}
-#     1 & 0 & 0 & \frac{89}{242} \\
-#    0 & 1 & 0 & \frac{105}{242} \\
-#     0 & 0 & 1 & -\frac{61}{242} \end{bmatrix}$
+#     1 & 0 & 0 & \frac{82933956}{309613590} \\
+#    0 & 1 & 0 & \frac{15522}{28314} \\
+#     0 & 0 & 1 & -\frac{222}{726} \end{bmatrix}$
 # 
-# 
-# $...$
 
 # In[48]:
 
@@ -462,30 +460,28 @@ printInMatrixFormat(Ab,padding=3,truncating=0)
 #     
 # $ --> \begin{bmatrix}
 #     0 & 1 & \frac{8}{9} & \frac{1}{9} \\
-#     0 & 0 & \frac{37}{3} & \frac{5}{3} \\
+#     0 & 0 & \frac{111}{9} & \frac{21}{9} \\
 #     0 & 6 & 6 & 1 \end{bmatrix}$
 #     
 # $ --> \begin{bmatrix}
 #     0 & 1 & \frac{8}{9} & \frac{1}{9} \\
-#     0 & 0 & \frac{37}{3} & \frac{5}{3} \\
-#     0 & 0 & \frac{2}{3} & \frac{1}{3} \end{bmatrix}$
+#     0 & 0 & \frac{111}{9} & \frac{21}{9} \\
+#     0 & 0 & \frac{6}{9} & \frac{3}{9} \end{bmatrix}$
 #     
 # $ --> \begin{bmatrix}
 #     0 & 1 & \frac{8}{9} & \frac{1}{9} \\
-#     0 & 0 & 1 & \frac{5}{37} \\
-#     0 & 0 & \frac{2}{3} & \frac{1}{3} \end{bmatrix}$
-#    
-# $ --> \begin{bmatrix}
-#     0 & 1 & \frac{8}{9} & \frac{1}{9} \\
-#     0 & 0 & 1 & \frac{5}{37} \\
-#     0 & 0 & 0 & \frac{9}{37} \end{bmatrix}$
+#     0 & 0 & 1 & \frac{21}{111} \\
+#     0 & 0 & \frac{6}{9} & \frac{3}{9} \end{bmatrix}$
 # 
 # $ --> \begin{bmatrix}
-#     0 & 1 & 0 & -\frac{81}{8} \\
-#     0 & 0 & 1 & \frac{5}{37} \\
-#     0 & 0 & 0 & \frac{9}{37} \end{bmatrix}$
-# 
-# $...$
+#     0 & 1 & 0 & -\frac{57}{999} \\
+#     0 & 0 & 1 & \frac{21}{111} \\
+#     0 & 0 & \frac{6}{9} & \frac{3}{9} \end{bmatrix}$
+#     
+# $ --> \begin{bmatrix}
+#     0 & 1 & 0 & -\frac{57}{999} \\
+#     0 & 0 & 1 & \frac{21}{111} \\
+#     0 & 0 & 0 & \frac{207}{999} \end{bmatrix}$
 
 # ### 2.3.3 实现 Gaussian Jordan 消元法
 
